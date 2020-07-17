@@ -6,9 +6,9 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -16,16 +16,15 @@ jobs:
   plugin_test:
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest]
-   
+        os: [ubuntu-latest, macos-latest]
+
     # The type of runner that the job will run on
     runs-on: ${{ matrix.os }}
 
     steps:
       - name: asdf_plugin_test
-        uses: asdf-vm/actions/plugin-test@v1.0.0
+        uses: asdf-vm/actions/plugin-test@v1
         with:
           command: gomplate -v
         env:
-          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          GITHUB_API_TOKEN: ${{ github.token }}
