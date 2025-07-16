@@ -83,7 +83,7 @@ get_download_url() {
 
     local github_repo="hairyhenderson/gomplate"
 
-    echo "https://github.com/${github_repo}/releases/download/${version}/${filename}"
+    echo "https://github.com/${github_repo}/releases/download/v${version#v}/${filename}"
 }
 
 tmp_download_dir="$(mktemp -d -t 'asdf_XXXXXXXX')"
