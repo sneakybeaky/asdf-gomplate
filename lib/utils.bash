@@ -34,11 +34,11 @@ list_all_versions() {
 	list_github_tags
 }
 get_filename() {
-    local binary_name="$1"
-    local platform="$2"
-    local arch_name="$3"
+	local binary_name="$1"
+	local platform="$2"
+	local arch_name="$3"
 
-    echo "${binary_name}_${platform}-${arch_name}"
+	echo "${binary_name}_${platform}-${arch_name}"
 }
 
 download_release() {
@@ -51,7 +51,6 @@ download_release() {
 
 	filename="$(get_filename $TOOL_NAME "${platform}" "${arch_name}")"
 
-	# TODO: Adapt the release URL convention for gomplate https://github.com/hairyhenderson/gomplate/releases/download/v4.3.3/gomplate_linux-armv6
 	url="$GH_REPO/releases/download/v${version}/${filename}"
 
 	echo "* Downloading $TOOL_NAME release $version..."
@@ -83,20 +82,20 @@ install_version() {
 	)
 }
 get_platform() {
-    uname | tr '[:upper:]' '[:lower:]'
+	uname | tr '[:upper:]' '[:lower:]'
 }
 
 get_arch() {
-    local arch
-    if [ "$(uname -m)" = "x86_64" ]; then
-        arch="amd64"
-    elif [ "$(uname -m)" = "aarch64" ]; then
-        arch="arm"
-    elif [ "$(uname -m)" = "arm64" ]; then
-        arch="arm64"
-    else
-        arch="386"
-    fi
+	local arch
+	if [ "$(uname -m)" = "x86_64" ]; then
+		arch="amd64"
+	elif [ "$(uname -m)" = "aarch64" ]; then
+		arch="arm"
+	elif [ "$(uname -m)" = "arm64" ]; then
+		arch="arm64"
+	else
+		arch="386"
+	fi
 
-    echo "${arch}"
+	echo "${arch}"
 }
