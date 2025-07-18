@@ -1,8 +1,9 @@
-name: CI
+name: Build
 
 on:
   push:
-    branches: [master]
+    branches:
+      - main
   pull_request:
 
 jobs:
@@ -10,14 +11,12 @@ jobs:
     name: asdf plugin test
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-
+        os:
+          - ubuntu-latest
+          - macos-latest
     runs-on: ${{ matrix.os }}
-
     steps:
       - name: asdf_plugin_test
         uses: asdf-vm/actions/plugin-test@v3
         with:
           command: gomplate -v
-        env:
-          GITHUB_API_TOKEN: ${{ github.token }}
