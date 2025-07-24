@@ -22,8 +22,6 @@
 Plugin:
 
 ```shell
-asdf plugin add gomplate
-# or
 asdf plugin add gomplate https://github.com/sneakybeaky/asdf-gomplate.git
 ```
 
@@ -31,7 +29,7 @@ gomplate:
 
 ```shell
 # Show all installable versions
-asdf list-all gomplate
+asdf list all gomplate
 
 # Install specific version
 asdf install gomplate latest
