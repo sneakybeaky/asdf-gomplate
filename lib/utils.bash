@@ -90,7 +90,7 @@ get_arch() {
 	if [ "$(uname -m)" = "x86_64" ]; then
 		arch="amd64"
 	elif [ "$(uname -m)" = "aarch64" ]; then
-		arch="arm"
+		arch="arm64"
 	elif [ "$(uname -m)" = "arm64" ]; then
 		arch="arm64"
 	else
